@@ -7,6 +7,9 @@ import Nosotros from "./components/pages/Contacto/Nosotros"
 import { BolichesContainer } from "./components/pages/Boliches/BolichesContainer"
 import BaresList from "./components/pages/Bares/BaresList"
 import BarDetail from './components/pages/BarDetail/BarDetail';
+import ZonaSur from "./components/pages/zonas/zonasur/ZonaSur"
+import ZonaOeste from "./components/pages/zonas/zonaoeste/ZonaOeste"
+import MapComponent from "./components/pages/Mapa/MapComponent"
 
 function App() {
   
@@ -16,6 +19,7 @@ function App() {
     <BrowserRouter>
 
     <NavBar /> 
+
 
     {/* <BolichesContainer/> */}
     
@@ -27,6 +31,11 @@ function App() {
         <Route path="/bareslist" element={<BaresList />} />
 
         <Route path="/bares/:id" element={<BarDetail />} />
+
+        <Route path="/zonasur" element={<ZonaSur/>} />
+        <Route path="/zonaoeste" element={<ZonaOeste/>} />
+
+        <Route path="/mapa" element={<MapComponent/>} />
 
         <Route path="*" element={ <h2>404 NOT FOUND</h2> } />
       </Routes>

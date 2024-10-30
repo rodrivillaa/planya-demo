@@ -1,11 +1,11 @@
 // src/components/BaresList.js
 import React, { useEffect, useState } from 'react';
-import { db } from '../../../firebase'; 
+import { db } from '../../../../firebase'; 
 import { collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
-import "./baresList.css"
+import "./zonaeste.css"
 
-const BaresList = () => {
+const ZonaEste = () => {
   const [bares, setBares] = useState([]); // Estado para guardar los bares
 
   useEffect(() => {
@@ -13,7 +13,13 @@ const BaresList = () => {
     const fetchBares = async () => {
       const baresCollection = collection(db, "bares"); // Referencia a la colección "bares"
       const baresSnapshot = await getDocs(baresCollection); // Obtiene los documentos
-      const baresList = baresSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      
+
+      // Filtrar bares solo de la zona sur
+      const baresList = baresSnapshot.docs
+        .map(doc => ({ id: doc.id, ...doc.data() }))
+        .filter(bar => bar.zona === "este"); // Filtra los bares por zona sur
+
       setBares(baresList); // Actualiza el estado con la lista de bares
     };
 
@@ -62,4 +68,4 @@ const BaresList = () => {
   );
 };
 
-export default BaresList;
+export default ZonaEste;

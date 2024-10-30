@@ -30,6 +30,7 @@ return (
     </div>
 
     <div className='btn-1'>
+
     <Link to={`/bareslist`}>
         <button>Ver Todo</button>
     </Link>
@@ -55,9 +56,6 @@ return (
 
     <SwiperSlide>
         <img src={boliche} alt="" />
-
-
-
 
     <div className='contenedor'>
         <div className='info'>
