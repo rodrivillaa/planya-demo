@@ -5,13 +5,25 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import "./mapcomponent.css"
 
-// Configuración de ícono para Leaflet
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+// Ícono personalizado con imagen PNG
+const customIcon = L.icon({
+  iconUrl: "/iconored.png", // Cambia esto a la URL de tu imagen PNG
+  iconSize: [24, 40], // Tamaño de tu imagen (ajústalo según tu preferencia)
+  iconAnchor: [16, 32], // Punto donde el ícono se "ancla" en el marcador
+  popupAnchor: [0, -32], // Posición del popup en relación con el ícono
+});
+
+// Define un ícono rojo para la ubicación del usuario
+const redIcon = L.icon({
+  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
   shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+  shadowSize: [41, 41],
+  className: 'red-marker', // opcional, para CSS personalizado
 });
 
 const MapComponent = () => {
@@ -51,7 +63,7 @@ return (
     <MapContainer
     center={userLocation}
     zoom={14}
-    style={{ width: "100vw", height: "100vh" }}
+    style={{ width: "99vw", height: "100vh" }}
     >
     <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -59,8 +71,8 @@ return (
     />
 
       {/* Marcador para la ubicación del usuario */}
-    <Marker position={userLocation}>
-        <Popup>Tu ubicación</Popup>
+    <Marker position={userLocation} icon={customIcon}>
+        <Popup>Tu ubicación</Popup> 
     </Marker>
 
       {/* Marcadores para los bares */}
@@ -71,7 +83,15 @@ return (
         >
         <Popup>
             <strong>{bar.nombre}</strong><br />
+            {bar.imagenURL && (
+              <img
+                src={bar.imagenURL}
+                alt={`Imagen de ${bar.nombre}`}
+                style={{ width: "100px", height: "auto" }} // Ajusta el tamaño según tu preferencia
+              />)} <br />
+           
             {bar.direccion}
+            <br />
             <a
             href={`https://www.google.com/maps?q=${bar.latitude},${bar.longitude}`}
             target="_blank"

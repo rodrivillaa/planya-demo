@@ -20,11 +20,10 @@ return (
 
             <div className='contenedor_de_navegacion'>
                 <ul>
-                    <li><a href="#">Categorias</a></li>
-                    <li><a href="#">Favoritos</a></li>
-
-                    <Link to="/mapa">Mi Mapa</Link>
-                    <li><a href="#">Ayuda</a></li>
+                <Link to="/zonaeste">Categorias</Link>
+                <Link>Favoritos</Link>
+                <Link to="/mapa">Mi Mapa</Link>
+                <Link to="/">Ayuda</Link>
                 </ul>
             </div>
 

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
+import "./bardetail.css"
 
 const BarDetail = () => {
   const { id } = useParams(); // Extrae el id desde la URL
   const [bar, setBar] = useState(null);
+  const [loading, setLoading] = useState(true); // Estado para controlar el mensaje de carga
 
   useEffect(() => {
     const fetchBarDetail = async () => {
@@ -19,6 +21,15 @@ const BarDetail = () => {
     };
 
     fetchBarDetail();
+
+        // Configura un timeout para el mensaje de carga
+        const timeoutId = setTimeout(() => {
+          setLoading(false);
+        }, 2000); // 3 segundos
+    
+        // Limpia el timeout cuando se desmonta el componente
+        return () => clearTimeout(timeoutId);
+
   }, [id]);
 
 
@@ -26,7 +37,9 @@ const BarDetail = () => {
 
 return (
     <div>
-    {bar ? (
+      {loading ? (
+        <p className="loading">Cargando detalles del bar...</p>
+      ) :bar ? (
 
         <div>
           <h1>{bar.nombre}</h1>
@@ -39,8 +52,8 @@ return (
           </Link>
         </div>
         
-    ) : (
-        <p>Cargando detalles del bar...</p>
+    ) : ( 
+        <p>no se encontro el bar...</p>
     )}
     </div>
 );

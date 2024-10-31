@@ -10,6 +10,7 @@ import BarDetail from './components/pages/BarDetail/BarDetail';
 import ZonaSur from "./components/pages/zonas/zonasur/ZonaSur"
 import ZonaOeste from "./components/pages/zonas/zonaoeste/ZonaOeste"
 import MapComponent from "./components/pages/Mapa/MapComponent"
+import ZonaEste from "./components/pages/zonas/zonaeste/ZonaEste"
 
 function App() {
   
@@ -34,6 +35,7 @@ function App() {
 
         <Route path="/zonasur" element={<ZonaSur/>} />
         <Route path="/zonaoeste" element={<ZonaOeste/>} />
+        <Route path="/zonaeste" element={<ZonaEste/>} />
 
         <Route path="/mapa" element={<MapComponent/>} />
 
