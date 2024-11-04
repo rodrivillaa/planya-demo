@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
 import "./bardetail.css"
+import { CiSaveDown2 } from "react-icons/ci";
+import { IoLocationOutline } from "react-icons/io5";
 
 const BarDetail = () => {
   const { id } = useParams(); // Extrae el id desde la URL
@@ -25,7 +27,7 @@ const BarDetail = () => {
         // Configura un timeout para el mensaje de carga
         const timeoutId = setTimeout(() => {
           setLoading(false);
-        }, 2000); // 3 segundos
+        }, 1000); // 3 segundos
     
         // Limpia el timeout cuando se desmonta el componente
         return () => clearTimeout(timeoutId);
@@ -36,61 +38,66 @@ const BarDetail = () => {
 
 
 return (
-  <div className='ContenedorDetallesPadreTotal'>
 
-  {loading ? (
-    <p className="loading">Cargando detalles del bar...</p>
-  ) :bar ? (
+    <div className='ContenedorDetallesPadreTotal'>
 
-    <div>
+      {loading ? (
+        <p className="loading">Cargando detalles del bar...</p>
+      ) :bar ? (
 
-      <div className='contenedorTitulo'>
-        <h1>BOLICHE - {bar.nombre}</h1>
-      </div>
+        <div>
+
+          <div className='contenedorTitulo'>
+            <h1>BOLICHE - {bar.nombre}</h1>
+          </div>
 
 
-      <div className='contenedorPrecioHorario'>
-        <span>Desde $5000</span>
-        <p>Horarios 12pm -  6am</p>
-        <p>Dias:  Viernes a Domingo</p>
-      </div>
+          <div className='contenedorPrecioHorario'>
+            <span>Desde $5000</span>
+            <p>Horarios 12pm -  6am</p>
+            <p>Dias:  Viernes a Domingo</p>
+          </div>
 
-      <div className='contenedorImagen'>
-        {bar.imagenURL && <img src={bar.imagenURL} alt={`Imagen de ${bar.nombre}`} width="400" />}
-      </div>
+          <div className='contenedorImagen'>
+            {bar.imagenURL && <img src={bar.imagenURL} alt={`Imagen de ${bar.nombre}`} width="400" />}
+          </div>
 
-      <div>
-        <p>Icono de guardado y mapa</p>
-      </div>
+          <div className='contenedorIconos'>
+            <span><CiSaveDown2 /></span>
+            <span><IoLocationOutline /></span>
+          </div>
 
-      <div>
-        <p>Informacion</p>
-        <p>Descripción: {bar.descripcion}</p>
-        <Link to="/zonaeste">
-          <button>Volver</button>
-        </Link>
-      </div>
+          <div className='contenedorDescripcion'>
+            <h2>Informacion</h2>
+            <p>Descripción: {bar.descripcion}</p>
+            <Link to="/zonaeste">
+              <button>Volver</button>
+            </Link>
+          </div>
 
-      <div>
-        <p>Precios Botellas</p>
-      </div>
+          <div className='contenedorPreciosBotellas'>
+            <h2>Precios Botellas</h2>
+            <p>Smirnoff - $40k</p>
+            <p>Speed - $9k</p>
+            <p>Corona - $10k</p>
+          </div>
 
-      <div>
-        <p>Ubicacion</p>
-        <p>Dirección: {bar.direccion}</p>
-      </div>
+          <div className='contenedorUbicacion'>
+            <h2>Ubicacion</h2>
+            <p>Dirección: {bar.direccion}</p>
+          </div>
 
+            
+            
+            
+            
+          
+        </div>
         
-        
-        
-        
-      
+    ) : ( 
+        <p>no se encontro el bar...</p>
+    )}
     </div>
-    
-) : ( 
-    <p>no se encontro el bar...</p>
-)}
-</div>
 );
 };
 
