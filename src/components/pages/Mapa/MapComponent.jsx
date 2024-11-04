@@ -6,6 +6,7 @@ import { db } from "../../../firebase";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./mapcomponent.css"
+import { Link } from 'react-router-dom';
 
 // Ícono personalizado con imagen PNG
 const customIcon = L.icon({
@@ -92,31 +93,56 @@ return (
 
     {/* Marcadores para los bares */}
     {bares.map((bar) => (
-      <Marker key={bar.id} position={[bar.latitude, bar.longitude]}>
-        <Popup>
-          <strong>{bar.nombre}</strong><br />
-          {bar.imagenURL && (
-            <img
-              src={bar.imagenURL}
-              alt={`Imagen de ${bar.nombre}`}
-              style={{ width: "100px", height: "auto" }}
-            />
-          )}
-          <br />
-          {bar.direccion}
-          <br />
-          <a
-            href={`https://www.google.com/maps?q=${bar.latitude},${bar.longitude}`}
-            target="_blank"
-            rel="noopener noreferrer"
+        // Verifica que tanto la latitud como la longitud existan
+        bar.latitude && bar.longitude ? (
+          <Marker
+            key={bar.id}
+            position={[bar.latitude, bar.longitude]}
+            icon={redIcon}
           >
-            Ver en Google Maps
-          </a>
-        </Popup>
-      </Marker>
-    ))}
-  </MapContainer>
-);
+
+
+
+            <Popup>
+            <div className="contenedormkr">
+              <strong>{bar.nombre}</strong><br />
+              {bar.imagenURL && (
+                <img
+                  src={bar.imagenURL}
+                  alt={`Imagen de ${bar.nombre}`}
+                  style={{ width: "150px", height: "auto",backgroundcolor:"red" }}
+                />
+              )}
+              <br />
+              {bar.direccion}
+              <br />
+              <a
+                href={`https://www.google.com/maps?q=${bar.latitude},${bar.longitude}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver en Google Maps
+              </a>
+              <br />
+              <div className="contenedorbtn">
+
+          <Link to={`/bares/${bar.id}`}>
+              <button className="btn">Mas Info</button>
+            
+            </Link>
+
+              </div>
+
+           
+            </div>
+            </Popup>
+          </Marker>
+        ) : (
+          console.warn(`Coordenadas no válidas para el bar con ID: ${bar.id}`)
+        )
+      ))}
+    </MapContainer>
+  );
 };
 
 export default MapComponent;

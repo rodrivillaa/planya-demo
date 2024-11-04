@@ -20,7 +20,7 @@ const BaresList = () => {
       setTimeout(() => {
         setBares(baresList); // Actualiza el estado con la lista de bares después del timeout
         setLoading(false); // Finaliza el estado de carga
-      }, 4000); // Tiempo de espera en milisegundos (2 segundos)
+      }, 3000); // Tiempo de espera en milisegundos (2 segundos)
     };
 
     fetchBares(); // Llama a la función al montar el componente

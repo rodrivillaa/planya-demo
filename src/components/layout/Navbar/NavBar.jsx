@@ -23,7 +23,7 @@ return (
                 <Link to="/zonaeste">Categorias</Link>
                 <Link>Favoritos</Link>
                 <Link to="/mapa">Mi Mapa</Link>
-                <Link to="/">Ayuda</Link>
+                <Link to="/preguntas">Ayuda</Link>
                 </ul>
             </div>
 

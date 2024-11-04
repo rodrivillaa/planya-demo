@@ -36,6 +36,7 @@ function App() {
         <Route path="/zonasur" element={<ZonaSur/>} />
         <Route path="/zonaoeste" element={<ZonaOeste/>} />
         <Route path="/zonaeste" element={<ZonaEste/>} />
+        <Route path="/preguntas" element={<PreguntasFrecuentes/>} />
 
         <Route path="/mapa" element={<MapComponent/>} />
 
