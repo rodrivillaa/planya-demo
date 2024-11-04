@@ -41,12 +41,43 @@
     padding: 36px 10px;
     font-family: "Montserrat", sans-serif;
 }
-.contenedor_de_navegacion a:hover{
+/* .contenedor_de_navegacion a:hover{
     background-color: #F28C1D;
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
+} */
+.contenedor_de_navegacion ul {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Espacio entre enlaces */
 }
 
+.contenedor_de_navegacion ul a {
+    position: relative;
+    color: #ffffff; /* Color inicial del texto */
+    overflow: hidden;
+    z-index: 2;
+}
+
+.contenedor_de_navegacion ul a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -100%; /* Inicia fuera de la vista */
+    width: 100%;
+    height: 100%;
+    background-color: #F28C1D; /* Color del efecto al hacer hover */
+    z-index: -1; /* Ubica el fondo debajo del texto */
+    transition: bottom 0.5s ease; /* Duración y suavidad de la animación */
+}
+
+.contenedor_de_navegacion ul a:hover::before {
+    bottom: 0; /* Mueve el fondo hacia arriba al hacer hover */
+}
+
+.contenedor_de_navegacion ul a:hover {
+    color: #fff; /* Cambia el color del texto al hacer hover */
+}
 
 
 .sub_contenedor_busqueda{

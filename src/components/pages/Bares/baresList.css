@@ -72,3 +72,19 @@
     background-color: #931004;
     transition: 1s;
 }
+
+.loading-container video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 800px;
+
+}
+
+.loading-container{
+    display: flex;
+    justify-content: center;
+
+    padding: 10px;
+}

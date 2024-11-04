@@ -27,6 +27,7 @@ const redIcon = L.icon({
 });
 
 const MapComponent = () => {
+  const [loading, setLoading] = useState(true); // Estado para controlar la carga
   const [bares, setBares] = useState([]);
   const [userLocation, setUserLocation] = useState({
     lat: -34.6037, // Coordenadas de Buenos Aires como predeterminadas
@@ -57,52 +58,64 @@ useEffect(() => {
         });
     });
     }
+      // Desactiva el estado de carga después de obtener los datos
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000); // 3 segundos de espera para simular la carga
 }, []);
 
+if (loading) {
+  return (
+    <div className="loading-container">
+      {/* Puedes cambiar este video por una imagen GIF o texto de carga */}
+      <video src="/cargamotion.mp4" autoPlay loop muted width="100" />
+      
+    </div>
+  );
+}
+
 return (
-    <MapContainer
+  <MapContainer
     center={userLocation}
     zoom={14}
     style={{ width: "99vw", height: "100vh" }}
-    >
+  >
     <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     />
 
-      {/* Marcador para la ubicación del usuario */}
+    {/* Marcador para la ubicación del usuario */}
     <Marker position={userLocation} icon={customIcon}>
-        <Popup>Tu ubicación</Popup> 
+      <Popup>Tu ubicación</Popup> 
     </Marker>
 
-      {/* Marcadores para los bares */}
+    {/* Marcadores para los bares */}
     {bares.map((bar) => (
-        <Marker
-        key={bar.id}
-        position={[bar.latitude, bar.longitude]}
-        >
+      <Marker key={bar.id} position={[bar.latitude, bar.longitude]}>
         <Popup>
-            <strong>{bar.nombre}</strong><br />
-            {bar.imagenURL && (
-              <img
-                src={bar.imagenURL}
-                alt={`Imagen de ${bar.nombre}`}
-                style={{ width: "100px", height: "auto" }} // Ajusta el tamaño según tu preferencia
-              />)} <br />
-           
-            {bar.direccion}
-            <br />
-            <a
+          <strong>{bar.nombre}</strong><br />
+          {bar.imagenURL && (
+            <img
+              src={bar.imagenURL}
+              alt={`Imagen de ${bar.nombre}`}
+              style={{ width: "100px", height: "auto" }}
+            />
+          )}
+          <br />
+          {bar.direccion}
+          <br />
+          <a
             href={`https://www.google.com/maps?q=${bar.latitude},${bar.longitude}`}
             target="_blank"
             rel="noopener noreferrer"
-            >
-                Ver en Google Maps
-                </a>
+          >
+            Ver en Google Maps
+          </a>
         </Popup>
-        </Marker>
+      </Marker>
     ))}
-    </MapContainer>
+  </MapContainer>
 );
 };
 

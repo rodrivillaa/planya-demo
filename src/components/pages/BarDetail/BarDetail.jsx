@@ -36,26 +36,61 @@ const BarDetail = () => {
 
 
 return (
-    <div>
-      {loading ? (
-        <p className="loading">Cargando detalles del bar...</p>
-      ) :bar ? (
+  <div className='ContenedorDetallesPadreTotal'>
 
-        <div>
-          <h1>{bar.nombre}</h1>
-          <p>Dirección: {bar.direccion}</p>
-          {bar.imagenURL && <img src={bar.imagenURL} alt={`Imagen de ${bar.nombre}`} width="400" />}
-          <p>Descripción: {bar.descripcion}</p>
-          
-          <Link to="/baresList">
-            <button>Volver</button>
-          </Link>
-        </div>
+  {loading ? (
+    <p className="loading">Cargando detalles del bar...</p>
+  ) :bar ? (
+
+    <div>
+
+      <div className='contenedorTitulo'>
+        <h1>BOLICHE - {bar.nombre}</h1>
+      </div>
+
+
+      <div className='contenedorPrecioHorario'>
+        <span>Desde $5000</span>
+        <p>Horarios 12pm -  6am</p>
+        <p>Dias:  Viernes a Domingo</p>
+      </div>
+
+      <div className='contenedorImagen'>
+        {bar.imagenURL && <img src={bar.imagenURL} alt={`Imagen de ${bar.nombre}`} width="400" />}
+      </div>
+
+      <div>
+        <p>Icono de guardado y mapa</p>
+      </div>
+
+      <div>
+        <p>Informacion</p>
+        <p>Descripción: {bar.descripcion}</p>
+        <Link to="/zonaeste">
+          <button>Volver</button>
+        </Link>
+      </div>
+
+      <div>
+        <p>Precios Botellas</p>
+      </div>
+
+      <div>
+        <p>Ubicacion</p>
+        <p>Dirección: {bar.direccion}</p>
+      </div>
+
         
-    ) : ( 
-        <p>no se encontro el bar...</p>
-    )}
+        
+        
+        
+      
     </div>
+    
+) : ( 
+    <p>no se encontro el bar...</p>
+)}
+</div>
 );
 };
 
