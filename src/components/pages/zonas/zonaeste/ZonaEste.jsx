@@ -3,6 +3,7 @@ import { db } from '../../../../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import './zonaeste.css';
+import imagen from "../../../../assets/images/imagen.png"
 
 const ZonaEste = () => {
   const [bares, setBares] = useState([]); // Estado para los bares
@@ -56,7 +57,7 @@ const ZonaEste = () => {
           <div className='ContenedorPadreBuscaTU'>
             <div className='TitulosBuscaTu'>
               <div className='TitulosBuscaTu_1'>
-                <h2> BUSCA TU...</h2>
+              <h2>BUSCA TU<span className="puntos onda"><span>.</span><span>.</span><span>.</span></span></h2>
               </div>
             </div>
 
@@ -115,7 +116,7 @@ const ZonaEste = () => {
                       width="200"
                     />
                   ) : (
-                    <p>Imagen no disponible</p>
+                    <img src={imagen} alt="Imagen no encontrada" width="200" />
                   )}
                 </div>
                 <div className="contenedorDeImagen">

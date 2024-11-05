@@ -4,6 +4,10 @@ import { db } from '../../../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import "./baresList.css"
+import imagen from "../../../assets/images/imagen.png"
+console.log(imagen); // Esto debería mostrar la URL de la imagen importada
+
+
 const BaresList = () => {
   const [bares, setBares] = useState([]); // Estado para guardar los bares
   const [loading, setLoading] = useState(true); // Estado para indicar si está cargando
@@ -28,7 +32,7 @@ const BaresList = () => {
 
   return (
     <div>
-      
+   
 
       {loading ? (
           <div className="loading-container">
@@ -37,14 +41,18 @@ const BaresList = () => {
         </div>
       ) : (
         <div className='contenedorBares'>
-          {bares.map((bar) => (
+
+          { bares.map((bar) => (
+             
             <div className='subContenedor' key={bar.id}>
               <div className='ImagenBoliche'>
-                {bar.imagenURL ? (
-                  <img src={bar.imagenURL} alt={`Imagen de ${bar.nombre}`} width="200" />
-                ) : (
-                  <p>Imagen no disponible</p>
-                )}
+                
+              {!bar.imagenURL ? (
+                <img src={imagen} alt="Imagen no encontrada" width="200" />
+              ) : (
+                <img src={bar.imagenURL} alt={`Imagen de ${bar.nombre}`} width="200" />
+              )}
+              
               </div>
 
               <div className='contenedorDeImagen'>

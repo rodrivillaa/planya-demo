@@ -5,6 +5,7 @@ import { db } from '../../../firebase';
 import "./bardetail.css"
 import { CiSaveDown2 } from "react-icons/ci";
 import { IoLocationOutline } from "react-icons/io5";
+import imagen from "../../../assets/images/imagen.png"
 
 const BarDetail = () => {
   const { id } = useParams(); // Extrae el id desde la URL
@@ -59,7 +60,15 @@ return (
           </div>
 
           <div className='contenedorImagen'>
-            {bar.imagenURL && <img src={bar.imagenURL} alt={`Imagen de ${bar.nombre}`} width="400" />}
+          {bar.imagenURL ? (
+                    <img
+                      src={bar.imagenURL}
+                      alt={`Imagen de ${bar.nombre}`}
+                      width="200"
+                    />
+                  ) : (
+                    <img src={imagen} alt="Imagen no encontrada" width="200" />
+                  )}
           </div>
 
           <div className='contenedorIconos'>

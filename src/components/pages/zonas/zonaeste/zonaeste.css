@@ -74,3 +74,30 @@ select {
     font-size: 24px;
     padding: 5px;
   }
+
+
+  .puntos span {
+    display: inline-block;
+    animation: ondaAnimacion 0.9s infinite;
+  }
+  
+  .puntos span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .puntos span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .puntos span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes ondaAnimacion {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
