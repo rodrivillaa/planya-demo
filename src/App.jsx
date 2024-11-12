@@ -11,18 +11,21 @@ import ZonaSur from "./components/pages/zonas/zonasur/ZonaSur"
 import ZonaOeste from "./components/pages/zonas/zonaoeste/ZonaOeste"
 import MapComponent from "./components/pages/Mapa/MapComponent"
 import ZonaEste from "./components/pages/zonas/zonaeste/ZonaEste"
+import { FavoritesProvider } from '../context/FavoritesContext';
+import Favorites from './components/pages/favorites/Favorites';
 
 function App() {
   
 
   return (
-
+    <FavoritesProvider>
     <BrowserRouter>
 
     <NavBar /> 
 
 
     {/* <BolichesContainer/> */}
+
     
       <Routes>
         <Route path="/" element={<Slide />} />
@@ -32,6 +35,7 @@ function App() {
         <Route path="/bareslist" element={<BaresList />} />
 
         <Route path="/bares/:id" element={<BarDetail />} />
+        <Route path="/favoritos" element={<Favorites />} />
 
         <Route path="/zonasur" element={<ZonaSur/>} />
         <Route path="/zonaoeste" element={<ZonaOeste/>} />
@@ -42,12 +46,12 @@ function App() {
 
         <Route path="*" element={ <h2>404 NOT FOUND</h2> } />
       </Routes>
-
+      
       <Footer/>
 
     </BrowserRouter>
 
- 
+    </FavoritesProvider>
   
   )
 }

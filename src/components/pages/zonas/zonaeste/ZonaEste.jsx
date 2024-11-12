@@ -64,7 +64,7 @@ const ZonaEste = () => {
             <div className="filtros">
 
 
-            <label style={{fontSize:"20px" , fontFamily:"sans-serif", color:"white" }}>
+            <label style={{fontSize:"20px" , fontFamily:"Montserrat", color:"white" }}>
             Categoria:
             <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
               <option value="">Todas</option>
@@ -78,7 +78,7 @@ const ZonaEste = () => {
 
 
 
-              <label style={{ fontSize: "20px", fontFamily: "sans-serif", color: "white" }}>
+              <label style={{ fontSize: "20px", fontFamily: "Montserrat", color: "white" }}>
                 Ubicación:
                 <select
                   className="custom-select"
@@ -92,7 +92,7 @@ const ZonaEste = () => {
                 </select>
               </label>
 
-              <label style={{ fontSize: "20px", fontFamily: "sans-serif", color: "white" }}>
+              <label style={{ fontSize: "20px", fontFamily: "Montserrat", color: "white" }}>
                 Zona:
                 <select value={zona} onChange={(e) => setZona(e.target.value)}>
                   <option value="">Todas</option>
