@@ -118,8 +118,6 @@ n de fondo con opacidad */
 
 @media (max-width: 480px){
   .leaflet-container{
-    
-    background-color: #007BFF;
     width: 100% !important;
     
   }
@@ -239,6 +237,10 @@ n de fondo con opacidad */
 .btn:hover{
   background-color: #931004;
   transition: 1s;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
 }
 
 }

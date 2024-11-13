@@ -251,5 +251,8 @@ select {
         width: 400px;
         height: 400px;
       }
+      video::-webkit-media-controls {
+        display: none !important;
+      }
 
   }
