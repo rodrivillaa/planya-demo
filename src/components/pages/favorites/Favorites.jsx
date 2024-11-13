@@ -1,5 +1,9 @@
 import { useContext, useEffect} from 'react';
 import { FavoritesContext } from '../../../../context/FavoritesContext';
+import "./favorites.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Swal from 'sweetalert2';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Favorites = () => {
     const { favorites, removeFavorite } = useContext(FavoritesContext);
@@ -34,7 +38,14 @@ const Favorites = () => {
                 <h3>{bar.nombre}</h3>
                 <p>{bar.ubicacion}</p>
                 <button onClick={() => removeFavorite(bar.id)}>
-                  Quitar de Favoritos
+                <FontAwesomeIcon
+              icon={faTrash}
+                style={{
+                  color:  "#931004" ,
+                  borderColor:  "yellow" ,
+                  borderRadius: "2px"
+                }}
+              />
                 </button>
               </div>
             );

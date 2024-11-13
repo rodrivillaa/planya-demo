@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+h2{
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+    color: rgb(250, 249, 249);
+    font-weight: bold;
+}
+.favorite-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    margin: 0 auto;
+background-color:#F28C1D;;
+border: 2px solid white;
+border-radius: 5px;
+padding: 5px;
+font-family: "Outfit", sans-serif;
+}
+
+.favorites-grid{
+
+padding: 10px;
+}
+
+.favorite-card img{
+width: 400px;
+height: 300px;
+border-radius: 5px;
+
+}
+button{
+    font-size: 28px;
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: 2s;
+    
+}
+
+@media (max-width: 480px){
+
+    .favorite-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        margin: 0 auto;
+    background-color:#FFDFBD;
+    border: 2px solid #F28C1D;
+    border-radius: 0px;
+    padding: 0px;
+    font-family: "Outfit", sans-serif;
+    }
+    
+    .favorites-grid{
+    
+    padding: 10px;
+    }
+    
+    .favorite-card img{
+    width: 100%;
+    height: 300px;
+    border-radius: 0px;
+    
+    }
+}
