@@ -69,7 +69,7 @@ if (loading) {
   return (
     <div className="loading-container">
       {/* Puedes cambiar este video por una imagen GIF o texto de carga */}
-      <video src="/cargamotion.mp4" autoPlay loop muted width="100" />
+      <video src="/cargamotion.mp4" autoPlay loop muted width="100" controls={false} />
       
     </div>
   );

@@ -50,7 +50,7 @@ const ZonaEste = () => {
       {loading ? (
         <div className="loading-container">
           {/* Reproduce el video de carga */}
-          <video src="/public/cargamotion.mp4" autoPlay loop muted width="100" />
+          <video src="/public/cargamotion.mp4" autoPlay loop muted width="100" controls={false} />
         </div>
       ) : (
         <>
