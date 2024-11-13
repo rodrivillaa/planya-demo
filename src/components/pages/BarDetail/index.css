@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.ContenedorDetallesPadreTotal{
+    font-family: "Outfit", sans-serif;
+}
+
+.loading {
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+
+
+.contenedorTitulo{
+    background-color: #F28C1D;
+    color: #ffffff;
+    text-align: center;
+    font-size: 41px;
+}
+
+
+
+
+.contenedorPrecioHorario{
+    text-align: center;
+}
+.contenedorPrecioHorario span{
+    color: #e21300;
+    font-size: 30px;
+}
+.contenedorPrecioHorario p{
+    color: #931004;
+}
+
+
+
+
+.contenedorImagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.contenedorImagen img{
+    border-radius: 30px;
+}
+
+
+
+
+.contenedorIconos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    gap: 40px;
+}
+
+
+
+.contenedorDescripcion{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    text-align: center;
+}
+.contenedorDescripcion h2{
+    font-size: 30px;
+}
+.contenedorDescripcion p{
+    margin: 0px 300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.contenedorDescripcion button{
+    background-color: #e21300;
+    padding: 5px 25px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+
+
+
+
+.contenedorPreciosBotellas{
+    text-align: center;
+    margin-top: 70px;
+}
+.contenedorPreciosBotellas h2{
+    font-size: 30px;
+}
+
+
+
+
+.contenedorUbicacion{
+    text-align: center;
+    margin-top: 70px;
+}
+.contenedorUbicacion h2{
+    font-size: 30px;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    all: unset;
+    font-size: 50px;
+    cursor: pointer;
+    
+
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: 2s;
+}
+
+.btn-fav{
+    display: flex;
+    justify-content: center;
+}
