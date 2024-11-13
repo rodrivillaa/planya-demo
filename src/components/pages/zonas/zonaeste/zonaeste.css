@@ -111,3 +111,145 @@ select {
       transform: translateY(-5px);
     }
   }
+
+  @media (max-width: 480px){
+    .ContenedorPadreBuscaTU{
+      background-color: #F28C1D;
+      padding: 20px;
+      margin: 40px 0px;
+      font-family: "Outfit", sans-serif;
+    }
+    
+    
+    /* Contenedores del Titulo */
+    .TitulosBuscaTu{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100px;
+    }
+    .TitulosBuscaTu_1{
+      font-size: 24px;
+      position: absolute;
+      color: white;
+      
+    }
+    
+    .contenedorBares{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+     
+      margin: 0 auto;
+    }
+    
+    
+    .filtros{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      margin: 20px 0px;
+      gap: 20px;
+    }
+    
+    /* Estilos básicos del select */
+    select {
+       
+        background-color: #f2f2f2;
+        border: none;
+        padding: 10px;
+        margin: 0px 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        width: 100px;
+        color: #000000;
+        cursor: pointer;
+        outline: none;
+        font-family: "Montserrat";
+      }
+      
+      /* Añadir un ícono personalizado como flecha */
+      select::after {
+        content: '▼'; /* Puedes usar otro ícono aquí */
+        position: absolute;
+        right: 15px;
+        font-size: 12px;
+        color: #333;
+      }
+      
+      /* Hover y focus en el select */
+      select:hover,
+      select:focus {
+        border-color: #000000;
+        background-color: #c9c8c8;
+      }
+      
+      /* Estilos para opciones */
+    
+    
+      option {
+        background-color: #ffdfbd;
+        color: #F28C1D;
+        font-size: 14px;
+        padding: 5px;
+        transition: 2s;
+      }
+    
+      option:hover {
+        background-color: #774209;
+        color: #F28C1D;
+        font-size: 24px;
+        padding: 5px;
+        transition: 2s;
+      }
+    
+    
+      .puntos span {
+        display: inline-block;
+        animation: ondaAnimacion 0.9s infinite;
+      }
+      
+      .puntos span:nth-child(1) {
+        animation-delay: 0s;
+      }
+      
+      .puntos span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      
+      .puntos span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      
+      @keyframes ondaAnimacion {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .subContenedor{
+        display: flex;
+    
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .subContenedor img{
+        width: 300px;
+        height: 300px;
+      }
+
+      .loading-container video{
+        width: 400px;
+        height: 400px;
+      }
+
+  }

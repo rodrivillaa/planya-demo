@@ -93,7 +93,7 @@ const ZonaEste = () => {
               </label>
 
               <label style={{ fontSize: "20px", fontFamily: "Montserrat", color: "white" }}>
-                Zona:
+                Zona: 
                 <select value={zona} onChange={(e) => setZona(e.target.value)}>
                   <option value="">Todas</option>
                   <option value="sur">Sur</option>

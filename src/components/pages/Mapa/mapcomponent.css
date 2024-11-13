@@ -115,3 +115,130 @@ n de fondo con opacidad */
     background-color: #931004;
     transition: 1s;
 }
+
+@media (max-width: 480px){
+  .leaflet-container{
+    
+    background-color: #007BFF;
+    width: 100% !important;
+    
+  }
+  /* Centrar contenido y cambiar la fuente en el popup */
+.contenedormkr .leaflet-popup-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.contenedormkr img {
+  display: block;
+  margin: 0 auto; /* Centra la imagen */
+  border-radius: 8px; /* Opcional: bordes redondeados */
+}
+
+.contenedormkr a {
+  color: #007BFF; /* Cambia el color del enlace si lo deseas */
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contenedormkr strong {
+  font-size: 1.2em;
+  display: block;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.contenedormkr a:hover {
+  color: #6f29e0; /* Cambia el color del enlace si lo deseas */
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Personalización del recuadro blanco del Popup */
+.leaflet-popup-content-wrapper {
+  background-color: #FFDFBD; /* Cambia el color de fondo del popup */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 2px solid #eeb67a; /* Color de borde */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra alrededor */
+  padding: 5px; /* Espacio interno */
+}
+
+/* Personalización del triángulo que apunta al marcador */
+.leaflet-popup-tip {
+  background-color: #ffffff; /* Color de fondo del triángulo */
+}
+
+n de fondo con opacidad */
+/* Información sobre la imagen */
+.popup-info {
+  position: relative;
+  display: flex;
+  z-index: 2;
+  color: #fff; /* Color del texto */
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-family: 'Arial', sans-serif; /* Cambia a la fuente que prefieras */
+  font-size: 12px;
+  font-weight: bold;
+  max-width: 30px;
+}
+
+.popup-info strong {
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+.popup-info a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+.btn{
+  all: unset;
+  background-color: #F28C1D;
+  padding: 5px;
+  border-radius: 5px;
+  width: 90px;
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  align-items: center;
+
+
+}
+
+.contenedorbtn{
+
+  display: flex;
+  justify-content: center;
+}
+
+.contenedormkr{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn:hover{
+  background-color: #931004;
+  transition: 1s;
+}
+
+}
