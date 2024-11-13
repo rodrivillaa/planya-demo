@@ -127,3 +127,129 @@ color: #931004;
     background-color: #931004; /* Cambia a tu color preferido */
   }
 
+  .destacados{
+    display: none;
+  }
+
+@media (max-width: 480px){
+
+    .banner_img{
+
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 100px;
+    }
+    
+    .banner_img img{
+
+        width: 300px;
+       
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-bottom: 5px solid #F28C1D;
+    }
+    .destacados{
+        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .destacados img{
+        padding: 10px;
+        border-bottom: 2px solid black;
+        align-items: center;
+        max-width: auto;
+        width: 300px;
+        height: 200px;
+    }
+    
+    .slide{
+        background-color: aqua;
+        width: 100% !important;
+    }
+    .text-container{
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+    }
+    
+    .text-container h1{
+        font-size: 45px;
+        color: #931004;
+        font-weight: 900;
+    }
+    
+    .text-container h3{
+      color: #444444;
+    }
+    
+    .btn-1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 120px;
+        font-family: "Montserrat", sans-serif;
+    }
+    
+    .btn-1 button{
+        all: unset;
+        background-color: #F28C1D;
+        padding: 5px;
+        border-radius: 5px;
+        width: 90px;
+        text-align: center;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+    }
+    
+    .btn-1 button:hover{
+        background-color: #931004;
+        transition: 1s;
+    }
+    
+    .btn-1 p{
+        display: none;
+        color: #444444;
+        font-family: "Montserrat", sans-serif;
+    }
+    
+ 
+    
+    .info{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-family: "Montserrat", sans-serif;
+        font-size: 10px;
+    }
+    
+    .info h3{
+       
+        margin: 0;
+        color: black;
+        font-size: 10px;
+        
+    }
+    
+    .contenedor{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    
+    }
+    
+    
+    .btn button:hover{
+    
+        transition: 1s;
+    }
+    
+    .swiper-slide{
+        display: none;
+    }
+
+}

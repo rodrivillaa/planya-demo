@@ -49,13 +49,49 @@ export default () => {
         <p>Arrastra y Desliza...</p>
       </div>
 
+      <div className="destacado">
+      {destacados.map((bar) => (
+            <div className='destacados' key={bar.id}>
+              <img src={bar.imagenURL} alt={bar.nombre} />
+              <div className='contenedor'>
+                <div className='info'>
+                  <h3>{bar.nombre}</h3>
+                  <h3>Desde - ${bar.precio}</h3>
+                  <h3>{bar.ubicacion}</h3>
+                </div>
+                <div className='btn'>
+                    <Link  to={`/bares/${bar.id}`}>
+                  <button>Ver Más</button>
+                    
+                    </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+      </div>
+
       <div className='slide'>
         <Swiper
+          
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={-150}
           slidesPerView={3}
           navigation
           pagination={{ clickable: true }}
+          breakpoints={{
+            480: {
+              slidesPerView: 5, // Muestra una diapositiva en pantallas de hasta 480px
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 2, // Muestra dos diapositivas en pantallas medianas (por ejemplo, tablets)
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3, // Muestra tres diapositivas en pantallas grandes
+              spaceBetween: 30,
+            },
+          }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}>
           {destacados.map((bar) => (

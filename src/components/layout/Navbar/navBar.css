@@ -109,3 +109,110 @@ padding: 5px;
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
 }
+
+@media (max-width: 480px){
+    .contenedor_navbar_padre{
+        background-color: #FFDFBD;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 10vh;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.5);
+        font-family: "Montserrat", sans-serif;
+    }
+    
+
+
+    .contenedor_de_navegacion{
+        font-size: 20px;
+    }
+    .contenedor_de_navegacion ul{
+        display: flex;
+        gap: 50px;
+        list-style-type: none;
+    }
+    .contenedor_de_navegacion a {
+        color: #000000;
+        padding: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+    }
+    /* .contenedor_de_navegacion a:hover{
+        background-color: #F28C1D;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+    } */
+    .contenedor_de_navegacion ul {
+        list-style: none;
+        display: flex;
+        gap: 5px; /* Espacio entre enlaces */
+    }
+    
+    .contenedor_de_navegacion ul a {
+        position: relative;
+        color: #ffffff; /* Color inicial del texto */
+        overflow: hidden;
+        z-index: 2;
+    }
+    
+    .contenedor_de_navegacion ul a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -100%; /* Inicia fuera de la vista */
+        width: 100%;
+        height: 100%;
+        background-color: #F28C1D; /* Color del efecto al hacer hover */
+        z-index: -1; /* Ubica el fondo debajo del texto */
+        transition: bottom 0.5s ease; /* Duración y suavidad de la animación */
+    }
+    
+    .contenedor_de_navegacion ul a:hover::before {
+        bottom: 0; /* Mueve el fondo hacia arriba al hacer hover */
+    }
+    
+    .contenedor_de_navegacion ul a:hover {
+        color: #fff; /* Cambia el color del texto al hacer hover */
+    }
+    
+    
+    .sub_contenedor_busqueda{
+        display: flex;
+        height: 40px;
+        margin: 20px;
+        padding: 10px;
+        display: none;
+    }
+    
+    .sub_contenedor_busqueda p{
+        margin: 6px;
+        display: flex;
+        align-items: center;
+        display: none;
+    }
+    
+    .sub_contenedor_busqueda input{
+        display: none;
+    all: unset;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    }
+    
+    
+    
+    .contenedor_planifica{
+        text-align: center;
+        padding: 8px 0px;
+        background-color: #F28C1D;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .logo_img img {
+        width: 50px;
+    }
+    
+}
