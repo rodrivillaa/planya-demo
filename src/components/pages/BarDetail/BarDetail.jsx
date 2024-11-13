@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
-import "./bardetail.css";
+import "./BarDetail.css";
 import { CiSaveDown2 } from "react-icons/ci";
 import { IoLocationOutline } from "react-icons/io5";
 import imagen from "../../../assets/images/imagen.png";
