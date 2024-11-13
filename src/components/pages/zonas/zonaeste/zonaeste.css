@@ -248,8 +248,16 @@ select {
       }
 
     
-      video::-webkit-media-controls {
-        display: none !important;
+    
+      .loading-container video{
+        width: 300px;
+        height: 300px;
       }
-
+      video::-webkit-media-controls {
+        display: none !important; /* Oculta los controles en navegadores WebKit (Safari y Chrome en móviles) */
+      }
+      
+      video::-webkit-media-controls-overlay-play-button {
+        display: none !important; /* Oculta el botón de reproducción en el centro */
+      }
   }
