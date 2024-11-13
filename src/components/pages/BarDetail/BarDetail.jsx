@@ -9,7 +9,7 @@ import { FavoritesContext } from '../../../../context/FavoritesContext';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
-import "./BarDetail.css"
+import "./bardetail.css"
 
 const BarDetail = () => {
   const { id } = useParams();
