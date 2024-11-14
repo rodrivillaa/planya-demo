@@ -9,8 +9,7 @@ import { FavoritesContext } from '../../../../context/FavoritesContext';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
-
-import "./index.css"
+import "./index.css";
 
 const BarDetail = () => {
   const { id } = useParams();
@@ -18,12 +17,12 @@ const BarDetail = () => {
   const [loading, setLoading] = useState(true);
   const { addFavorite, removeFavorite, favorites } = useContext(FavoritesContext);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showShareOptions, setShowShareOptions] = useState(false);
 
   const handleToggleFavorite = () => {
     const alreadyInFavorites = favorites.some(fav => fav.id === id);
 
     if (alreadyInFavorites) {
-      // Quitar de favoritos
       removeFavorite(id);
       localStorage.removeItem(id);
       setIsFavorite(false);
@@ -34,7 +33,6 @@ const BarDetail = () => {
         confirmButtonText: 'OK'
       });
     } else {
-      // Agregar a favoritos
       const barConID = {
         ...bar,
         id: id,
@@ -54,6 +52,41 @@ const BarDetail = () => {
     }
   };
 
+  const handleLocationClick = () => {
+    if (bar.latitude && bar.longitude) {
+      const mapsUrl = `https://www.google.com/maps?q=${bar.latitude},${bar.longitude}`;
+      window.open(mapsUrl, '_blank');
+    } else {
+      Swal.fire({
+        title: 'Ubicación no disponible',
+        text: 'No hay coordenadas para este bar',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      });
+    }
+  };
+
+  const handleShare = () => {
+    setShowShareOptions(!showShareOptions);
+  };
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    Swal.fire({
+      title: 'Enlace copiado',
+      text: 'El enlace se ha copiado al portapapeles',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
+    setShowShareOptions(false);
+  };
+
+  const shareOnWhatsApp = () => {
+    const url = `https://wa.me/?text=${encodeURIComponent(`Mira este bar: ${window.location.href}`)}`;
+    window.open(url, '_blank');
+    setShowShareOptions(false);
+  };
+
   useEffect(() => {
     const fetchBarDetail = async () => {
       const barDoc = doc(db, "bares", id);
@@ -64,7 +97,6 @@ const BarDetail = () => {
           ...barSnapshot.data()
         });
 
-        // Verificar en localStorage si ya está en favoritos
         const savedFavorite = localStorage.getItem(id);
         if (savedFavorite) {
           setIsFavorite(true);
@@ -87,26 +119,18 @@ const BarDetail = () => {
           <div className='contenedorTitulo'>
             <h1>BOLICHE - {bar.nombre}</h1>
           </div>
-
           <div className='contenedorPrecioHorario'>
             <span>Desde ${bar.precio}</span>
             <p>Horarios 12pm - 6am</p>
             <p>Días: Viernes a Domingo</p>
           </div>
-
           <div className='contenedorImagen'>
-            {bar.imagenURL ? (
-              <img src={bar.imagenURL} alt={`Imagen de ${bar.nombre}`} width="200" />
-            ) : (
-              <img src={imagen} alt="Imagen no encontrada" width="200" />
-            )}
+            <img src={bar.imagenURL || imagen} alt={`Imagen de ${bar.nombre}`} width="200" />
           </div>
-
           <div className='contenedorIconos'>
-            <span><CiSaveDown2 /></span>
-            <span><IoLocationOutline /></span>
+            <span  onClick={handleShare}><CiSaveDown2 /></span>
+            <span onClick={handleLocationClick}><IoLocationOutline /></span>
           </div>
-
           <div className='contenedorDescripcion'>
             <h2>Información</h2>
             <p>Descripción: {bar.descripcion}</p>
@@ -114,31 +138,30 @@ const BarDetail = () => {
               <button>Volver</button>
             </Link>
           </div>
-
-          <div className='contenedorPreciosBotellas'>
-            <h2>Precios Botellas</h2>
-            <p>Smirnoff - $40k</p>
-            <p>Speed - $9k</p>
-            <p>Corona - $10k</p>
-          </div>
-
-          <div className='contenedorUbicacion'>
-            <h2>Ubicación</h2>
-            <p>Dirección: {bar.direccion}</p>
-          </div>
-
           <div className='btn-fav'>
             <button onClick={handleToggleFavorite}>
               <FontAwesomeIcon
                 icon={faBookmark}
                 style={{
                   color: isFavorite ? "#F28C1D" : "gray",
-                  borderColor: isFavorite ? "yellow" : "black",
-                  borderRadius: "4px"
                 }}
               />
             </button>
           </div>
+          
+
+          {/* Modal de opciones de compartir */}
+          {showShareOptions && (
+            <div className="modal">
+              <div className="modal-content">
+                <h3>Compartir</h3>
+                <button onClick={shareOnWhatsApp}>Compartir en WhatsApp</button>
+                <button onClick={copyLink}>Copiar enlace</button>
+                <button onClick={() => setShowShareOptions(false)}>Cerrar</button>
+              </div>
+            </div>
+          )}
+
         </div>
       ) : (
         <p>No se encontró el bar...</p>
