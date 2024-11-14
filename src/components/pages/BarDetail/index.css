@@ -133,6 +133,90 @@ button:hover{
     justify-content: center;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease; /* Animación de entrada */
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .modal-content {
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    text-align: center;
+    animation: scaleUp 0.3s ease; /* Animación de entrada */
+    position: relative;
+  }
+  
+  @keyframes scaleUp {
+    from { transform: scale(0.9); }
+    to { transform: scale(1); }
+  }
+  
+  .modal-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .modal-content button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .modal-content button:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal-content button:last-child {
+    background-color: #f44336;
+  }
+  
+  .modal-content button:last-child:hover {
+    background-color: #d32f2f;
+  }
+  
+  .modal-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: #333;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+  }
+
+  span{
+    cursor: pointer;
+  }
+
 @media (max-width: 480px){
     .ContenedorDetallesPadreTotal{
         font-family: "Outfit", sans-serif;
