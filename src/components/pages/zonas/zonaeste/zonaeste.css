@@ -112,6 +112,25 @@ select {
     }
   }
 
+  .paginacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+  }
+
+  .volver-inicio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    font-family: "Outfit", sans-serif;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 24px;
+  }
+
   @media (max-width: 480px){
     .ContenedorPadreBuscaTU{
       background-color: #F28C1D;

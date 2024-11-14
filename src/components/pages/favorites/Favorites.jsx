@@ -16,7 +16,7 @@ const Favorites = () => {
       return (
         <div>
           <h2>Mis Favoritos</h2>
-          <p>No tienes bares favoritos guardados.</p>
+          <p className='sin_favoritos'>No tienes bares favoritos guardados.</p>
         </div>
       );
     }

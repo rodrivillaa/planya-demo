@@ -6,6 +6,13 @@ h2{
     color: rgb(250, 249, 249);
     font-weight: bold;
 }
+.sin_favoritos{
+    text-align: center;
+    margin-top: 200px;
+    font-family: "Outfit", sans-serif;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
 .favorite-card{
     display: flex;
     flex-direction: column;
@@ -13,15 +20,14 @@ h2{
     align-items: center;
     width: 700px;
     margin: 0 auto;
-background-color:#F28C1D;;
-border: 2px solid white;
-border-radius: 5px;
-padding: 5px;
-font-family: "Outfit", sans-serif;
+    background-color:#F28C1D;;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: "Outfit", sans-serif;
 }
 
 .favorites-grid{
-
 padding: 10px;
 }
 
@@ -29,16 +35,15 @@ padding: 10px;
 width: 400px;
 height: 300px;
 border-radius: 5px;
-
 }
+
 button{
-    font-size: 29px;
+    font-size: 28px;
 }
 
 button:hover{
     transform: scale(1.1);
-    transition: 2s;
-    
+    transition: 2s;    
 }
 
 @media (max-width: 480px){

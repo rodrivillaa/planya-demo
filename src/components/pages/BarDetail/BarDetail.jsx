@@ -18,7 +18,6 @@ const BarDetail = () => {
   const [loading, setLoading] = useState(true);
   const { addFavorite, removeFavorite, favorites } = useContext(FavoritesContext);
   const [isFavorite, setIsFavorite] = useState(false);
-  const [showShareOptions, setShowShareOptions] = useState(false);
 
   const handleToggleFavorite = () => {
     const alreadyInFavorites = favorites.some(fav => fav.id === id);
@@ -55,45 +54,6 @@ const BarDetail = () => {
     }
   };
 
-
-  const handleShare = () => {
-    setShowShareOptions(!showShareOptions); // Mostrar/ocultar el modal de compartir
-  };
-
-  const copyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
-    Swal.fire({
-      title: 'Enlace copiado',
-      text: 'El enlace se ha copiado al portapapeles',
-      icon: 'success',
-      confirmButtonText: 'OK'
-    });
-    setShowShareOptions(false);
-  };
-
-  const shareOnWhatsApp = () => {
-    const url = `https://wa.me/?text=${encodeURIComponent(`Mira este bar: ${window.location.href}`)}`;
-    window.open(url, '_blank');
-    setShowShareOptions(false);
-  };
-
-
-  // Función para abrir Google Maps con las coordenadas
-  const handleLocationClick = () => {
-    if (bar.latitude && bar.longitude) {
-      const mapsUrl = `https://www.google.com/maps?q=${bar.latitude},${bar.longitude}`;
-      window.open(mapsUrl, '_blank');
-    } else {
-      Swal.fire({
-        title: 'Ubicación no disponible',
-        text: 'No hay coordenadas para este bar',
-        icon: 'warning',
-        confirmButtonText: 'OK'
-      });
-    }
-  };
-
-
   useEffect(() => {
     const fetchBarDetail = async () => {
       const barDoc = doc(db, "bares", id);
@@ -116,7 +76,7 @@ const BarDetail = () => {
     };
 
     fetchBarDetail();
-  }, [id, favorites]);
+  }, [id]);
 
   return (
     <div className='ContenedorDetallesPadreTotal'>
@@ -143,8 +103,8 @@ const BarDetail = () => {
           </div>
 
           <div className='contenedorIconos'>
-            <span onClick={handleShare}><CiSaveDown2 /></span>
-            <span onClick={handleLocationClick}><IoLocationOutline /></span>
+            <span><CiSaveDown2 /></span>
+            <span><IoLocationOutline /></span>
           </div>
 
           <div className='contenedorDescripcion'>
@@ -179,19 +139,6 @@ const BarDetail = () => {
               />
             </button>
           </div>
-
-  {/* Modal de opciones de compartir */}
-  {showShareOptions && (
-            <div className="modal">
-              <div className="modal-content">
-                <h3>Compartir</h3>
-                <button onClick={shareOnWhatsApp}>Compartir en WhatsApp</button>
-                <button onClick={copyLink}>Copiar enlace</button>
-                <button onClick={() => setShowShareOptions(false)}>Cerrar</button>
-              </div>
-            </div>
-          )}
-
         </div>
       ) : (
         <p>No se encontró el bar...</p>
