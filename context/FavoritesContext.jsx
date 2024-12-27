@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const FavoritesContext = createContext();
 
-// FavoritesContext.js
+// FavoritesContext.js rr
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(() => {
     const savedFavorites = localStorage.getItem('favorites');
